@@ -1,0 +1,54 @@
+#include <stdio.h>
+
+int main() {
+  int arr = {2, 1, 1, 2, 1, 2};
+  int n = 6;
+  int temp;
+
+  // Sort the array in descending order
+  for (int i = 0; i < n; i++) {
+    for (int j = i + 1; j < n; j++) {
+      if (arr[i] < arr[j]) {
+        temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+      }
+    }
+  }
+
+  // Find the second largest and smallest elements
+  int largest2 = arr[1];
+  int smallest = arr[n - 1];
+  for (int i = 1; i < n; i++) {
+    if (arr[i] < smallest) {
+      smallest = arr[i];
+    }
+    if (arr[i] > largest2 && arr[i] != arr) {
+      largest2 = arr[i];
+    }
+  }
+
+  // Find the average of the two elements
+  double average = (largest2 + smallest) / 2.0;
+
+  // Check if the average is present in the array
+  int found = 0;
+  for (int i = 0; i < n; i++) {
+    if (arr[i] == average) {
+      found = 1;
+      break;
+    }
+  }
+
+  // Print the results
+  printf("The SECOND LARGEST = %d\n", largest2);
+  printf("THE SMALLEST = %d\n", smallest);
+  printf("The AVERAGE of the two elements = %.2lf\n", average);
+  if (found) {
+    printf("The AVERAGE is present in the array.\n");
+  } else {
+    printf("The AVERAGE is not present in the array.\n");
+  }
+
+  return 0;
+}

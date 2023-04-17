@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main() {
+  int arr = {2, 1, 1, 2, 1, 2};
+  int largest1 = arr, largest2 = arr[1];
+
+  for (int i = 1; i < 6; i++) {
+    if (arr[i] > largest1) {
+      largest2 = largest1;
+      largest1 = arr[i];
+    } else if (arr[i] > largest2 && arr[i] != largest1) {
+      largest2 = arr[i];
+    }
+  }
+
+  printf("The FIRST LARGEST = %d\n", largest1);
+  printf("THE SECOND LARGEST = %d\n", largest2);
+
+  return 0;
+}

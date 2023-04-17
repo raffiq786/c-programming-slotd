@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char str;
+    int i, vowels = 0;
+
+    printf("Enter a string: ");
+    scanf("%s",str);
+
+    for (i = 0; str[i] != '\0'; i++)
+    {
+        if (tolower(str[i]) == 'a' || tolower(str[i]) == 'e' || tolower(str[i]) == 'i' || tolower(str[i]) == 'o' || tolower(str[i]) == 'u') {
+            vowels++;
+        }
+    }
+
+    printf("Number of vowels in the string: %d\n", vowels);
+
+    return 0;
+}
